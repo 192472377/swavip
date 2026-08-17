@@ -1,0 +1,32 @@
+CREATE TABLE IF NOT EXISTS stock (
+  id SERIAL PRIMARY KEY,
+  sku VARCHAR(64) UNIQUE NOT NULL,
+  qty INTEGER NOT NULL DEFAULT 0,
+  bin_id VARCHAR(32),
+  reorder_level INTEGER NOT NULL DEFAULT 10,
+  last_updated TIMESTAMP NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS warehouses (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(128) NOT NULL,
+  location VARCHAR(256)
+);
+
+CREATE TABLE IF NOT EXISTS zones (
+  id SERIAL PRIMARY KEY,
+  warehouse_id INTEGER REFERENCES warehouses(id),
+  code VARCHAR(32) NOT NULL,
+  description VARCHAR(256)
+);
+
+CREATE TABLE IF NOT EXISTS bins (
+  id SERIAL PRIMARY KEY,
+  zone_id INTEGER REFERENCES zones(id),
+  code VARCHAR(32) NOT NULL,
+  capacity INTEGER NOT NULL DEFAULT 100
+);
+
+-- seed data
+INSERT INTO warehouses (name, location) VALUES ('Chennai DC1', 'Chennai, TN')
+  ON CONFLICT DO NOTHING;
