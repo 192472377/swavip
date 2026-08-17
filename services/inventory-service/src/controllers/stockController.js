@@ -94,5 +94,15 @@ async function deleteStock(req, res) {
     res.status(500).json({ error: "internal error" });
   }
 }
-
-module.exports = { createStock, getStock, listStock, updateStock, deleteStock };
+async function listLowStock(req, res) {
+  try {
+    const result = await pool.query(
+      "SELECT * FROM stock WHERE qty <= reorder_level ORDER BY qty ASC"
+    );
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "internal error" });
+  }
+}
+module.exports = { createStock, getStock, listStock, updateStock, deleteStock, listLowStock };
