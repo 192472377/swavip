@@ -1,0 +1,11 @@
+### TC-01: Create item, normal input
+POST http://localhost:8080/api/inventory/stock
+Content-Type: application/json
+
+{"sku":"WH-1001","name":"Pallet Jack","qty":50,"location":"A1"}
+
+### TC-02: Create item, quantity at zero boundary
+POST http://localhost:8080/api/inventory/stock
+Content-Type: application/json
+
+{"sku":"WH-1002","name":"Empty Crate","qty":0,"location":"A2"}
