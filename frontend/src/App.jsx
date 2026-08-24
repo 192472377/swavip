@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <div style={{ fontFamily: "sans-serif", padding: "2rem" }}>
-      <h1>SWAIVP \u2014 Inventory Dashboard</h1>
+      <h1>SWAIVP — Inventory Dashboard</h1>
       {error && <p style={{ color: "red" }}>Error loading stock: {error}</p>}
       <table border="1" cellPadding="8" style={{ borderCollapse: "collapse" }}>
         <thead>
