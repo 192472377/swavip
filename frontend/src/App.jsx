@@ -109,7 +109,7 @@ export default function App() {
             <tr
               key={item.sku}
               style={{
-                background: item.qty <= item.reorder_level ? "#fdecea" : "#ecf0f1",
+                background: item.qty <= item.reorder_level ? "#2e1411" : "#ecf0f1",
                 textAlign: "center",
               }}
             >
