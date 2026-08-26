@@ -38,7 +38,7 @@ export default function App() {
         </thead>
         <tbody>
           {stock.map((item) => (
-            <tr key={item.sku} style={{ background: item.qty <= item.reorder_level ? "#fdecea" : "white" }}>
+            <tr key={item.sku} style={{ background: item.qty <= item.reorder_level ? "#d95041" : "white" }}>
               <td>{item.sku}</td>
               <td>{item.qty}</td>
               <td>{item.bin_id}</td>
