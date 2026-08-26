@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <div style={{ fontFamily: "sans-serif", padding: "2rem" }}>
-      <h1>SWAIVP — Inventory Dashboard123</h1>
+      <h1>SWAIVP — Inventory Dashboard</h1>
       {error && <p style={{ color: "red" }}>Error loading stock: {error}</p>}
       <table border="1" cellPadding="8" style={{ borderCollapse: "collapse" }}>
         <thead>
@@ -48,7 +48,7 @@ export default function App() {
           ))}
         </tbody>
       </table>
-      {stock.length === 0 && !error && <p>No stock records yet \u2014 add one via the API.</p>}
+      {stock.length === 0 && !error && <p>No stock records yet — add one via the API.</p>}
     </div>
   );
 }
